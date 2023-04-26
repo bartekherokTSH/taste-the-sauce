@@ -16,26 +16,26 @@ it('confirms the item with the lowest price', () => {
     .should('be.visible')
     .find('.inventory_item_price')
     .should('have.length.greaterThan', 3)
-  // from each price element, get its inner text
-  // and log it to the DevTools console
-  // https://on.cypress.io/then
-  // Tip: find how using https://cypress.tips/search
-  // Tip 2: Cypress._.map is really universal
-  //
-  .map('innerText')
-  .print('strings %o')
-  // each price string has "$" character in front
-  // remove it using string "substr" method
-  //
-  .mapInvoke('slice', 1)
-  .print('without %o')
-  // convert each price string into a Number
-  //
-  .map(Number)
-  .print('numbers %o')
-  // find the smallest price number using Cypress._.min
-  // and confirm it is 7.99
-  //
-  .apply(Cypress._.min)
-  .should('equal', 7.99)
+    // from each price element, get its inner text
+    // and log it to the DevTools console
+    // https://on.cypress.io/then
+    // Tip: find how using https://cypress.tips/search
+    // Tip 2: Cypress._.map is really universal
+    //
+    .map('innerText')
+    .print('strings %o')
+    // each price string has "$" character in front
+    // remove it using string "substr" method
+    //
+    .mapInvoke('slice', 1)
+    .print('without %o')
+    // convert each price string into a Number
+    //
+    .map(Number)
+    .print('numbers %o')
+    // find the smallest price number using Cypress._.min
+    // and confirm it is 7.99
+    //
+    .apply(Cypress._.min)
+    .should('equal', 7.99)
 })
